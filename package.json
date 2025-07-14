@@ -20,6 +20,9 @@
     "type": "git",
     "url": ""
   },
+  "bin": {
+    "ts-env": "./bin/bin.js"
+  },
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -39,6 +42,11 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build": "npm run clean && npm run build:cjs && npm run build:esm",
     "clean": "shx rm -rf dist types",
+    "env:decrypt": "tsx ./src/bin/env-encrypt.ts decrypt",
+    "env:encrypt": "tsx ./src/bin/env-encrypt.ts encrypt",
+    "env:bin:encrypt": "node ./bin/bin.js encrypt",
+    "env:bin:decrypt": "node ./bin/bin.js decrypt",
+    "env:bin": "node ./bin/bin.js",
     "lint:fix": "npm run boundaries && eslint src --ext .ts",
     "lint": "npm run boundaries && eslint src --ext .ts",
     "prepublishOnly": "npm run build",

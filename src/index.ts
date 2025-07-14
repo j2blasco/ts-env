@@ -1,1 +1,1 @@
-export const typescriptPackageTemplateTest = { version: '2025-07-13' };
+export { setEnvironment } from './env/set-env-vars';

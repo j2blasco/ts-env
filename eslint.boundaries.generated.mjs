@@ -12,7 +12,7 @@ export default [
     },
     settings: {
       'boundaries/elements': [
-        { type: 'root', pattern: 'src' }
+        { type: 'environment', pattern: 'src/environment' }
       ] 
     },
     rules: {
@@ -22,7 +22,7 @@ export default [
         {
           default: 'disallow',
           rules: [
-
+            { from: 'environment', allow: ['fs', 'os', 'path', 'crypto', 'url'] }
           ]
         }
       ],

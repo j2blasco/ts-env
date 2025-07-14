@@ -4,5 +4,13 @@
     "module": "CommonJS",
     "outDir": "./dist/cjs",
     "declarationDir": "./types"
-  }
+  },
+  "exclude": [
+    "**/*.esm.ts",
+    "**/*.test.ts",
+    "**/*.boundaries.ts",
+    "src/boundaries.types.ts",
+    "dist",
+    "types"
+  ]
 }
