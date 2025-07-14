@@ -1,6 +1,6 @@
 {
   "name": "@j2blasco/ts-env",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A TypeScript utility for securely managing environment variables through file encryption and runtime loading",
   "author": "j2blasco",
   "license": "MIT",
@@ -20,39 +20,36 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./types/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": ""
   },
   "bin": {
-    "ts-env": "./bin/bin.js"
+    "ts-env": "./dist/bin/cli.cjs"
   },
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "types": "./types/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
     "dist",
-    "types",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
-    "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
-    "build": "npm run clean && npm run build:cjs && npm run build:esm",
-    "clean": "shx rm -rf dist types",
-    "env:bin:decrypt": "node ./bin/bin.js decrypt",
-    "env:bin:encrypt": "node ./bin/bin.js encrypt",
-    "env:bin": "node ./bin/bin.js",
-    "env:decrypt": "tsx ./src/bin/env-encrypt.ts decrypt",
-    "env:encrypt": "tsx ./src/bin/env-encrypt.ts encrypt",
+    "build": "tsup",
+    "clean": "shx rm -rf dist",
+    "env:bin:decrypt": "node ./dist/bin/cli.cjs decrypt",
+    "env:bin:encrypt": "node ./dist/bin/cli.cjs encrypt",
+    "env:bin": "node ./dist/bin/cli.cjs",
+    "env:decrypt": "tsx ./src/bin/cli.ts decrypt",
+    "env:encrypt": "tsx ./src/bin/cli.ts encrypt",
     "lint:fix": "npm run boundaries && eslint src --ext .ts",
     "lint": "npm run boundaries && eslint src --ext .ts",
     "prepublishOnly": "npm run build",
@@ -73,6 +70,7 @@
     "shx": "^0.4.0",
     "ts-jest": "^29.3.2",
     "tsconfig-paths": "^4.2.0",
+    "tsup": "^8.5.0",
     "tsx": "^4.20.3",
     "typescript": "~5.7.2"
   }
