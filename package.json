@@ -1,14 +1,21 @@
 {
-  "name": "@j2blasco/ts-package-template",
+  "name": "@j2blasco/ts-env",
   "version": "0.0.1",
-  "description": "Typescript Package Template",
+  "description": "A TypeScript utility for securely managing environment variables through file encryption and runtime loading",
   "author": "j2blasco",
   "license": "MIT",
   "type": "module",
   "keywords": [
     "typescript",
-    "package",
-    "template"
+    "environment-variables",
+    "encryption",
+    "security",
+    "env",
+    "config",
+    "cli",
+    "aes",
+    "environment",
+    "nodejs"
   ],
   "publishConfig": {
     "access": "public"
@@ -37,16 +44,15 @@
     "LICENSE"
   ],
   "scripts": {
-    "boundaries": "ts-boundaries",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build": "npm run clean && npm run build:cjs && npm run build:esm",
     "clean": "shx rm -rf dist types",
+    "env:bin:decrypt": "node ./bin/bin.js decrypt",
+    "env:bin:encrypt": "node ./bin/bin.js encrypt",
+    "env:bin": "node ./bin/bin.js",
     "env:decrypt": "tsx ./src/bin/env-encrypt.ts decrypt",
     "env:encrypt": "tsx ./src/bin/env-encrypt.ts encrypt",
-    "env:bin:encrypt": "node ./bin/bin.js encrypt",
-    "env:bin:decrypt": "node ./bin/bin.js decrypt",
-    "env:bin": "node ./bin/bin.js",
     "lint:fix": "npm run boundaries && eslint src --ext .ts",
     "lint": "npm run boundaries && eslint src --ext .ts",
     "prepublishOnly": "npm run build",
