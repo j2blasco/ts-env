@@ -1,6 +1,6 @@
 {
   "name": "@j2blasco/ts-env",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A TypeScript utility for securely managing environment variables through file encryption and runtime loading",
   "author": "j2blasco",
   "license": "MIT",
