@@ -1,6 +1,6 @@
 {
   "name": "@j2blasco/ts-env",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A TypeScript utility for securely managing environment variables through file encryption and runtime loading",
   "author": "j2blasco",
   "license": "MIT",
@@ -25,7 +25,7 @@
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/j2blasco/ts-env.git"
   },
   "bin": {
     "ts-env": "./dist/bin/cli.cjs"
